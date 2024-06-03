@@ -1,0 +1,9 @@
+<h1 class="title">Dashboard</h1>
+<main class="flex-container">
+    <app-card-home
+        *ngFor="let item of routes"
+        route="{{ item.url }}"
+        titulo="{{ item.label }}"
+        icon="{{ item.icon }}"
+    ></app-card-home>
+</main>

@@ -1,0 +1,30 @@
+<div class="background">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  <div class="grid p-3 align-items-center">
+    <div class=" login_bg col-12 mt-5 md:col-6 md:col-offset-3 md:mt-8">
+      <form autocomplete="off" class="flex flex-column" [formGroup]="myForm" (ngSubmit)="login()">
+        <span class="mb-5 text-center text-5xl font-bold">Ingresar a Elex</span>
+        <mat-form-field appearance="fill" class="mb-3">
+          <mat-label>Usuario</mat-label>
+          <input formControlName="username" type="text" matInput placeholder="Nombre de usuario">
+          <mat-error *ngIf="isValidField('username')">
+            {{ getFieldError('username') }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="mb-3">
+          <mat-label>Contraseña</mat-label>
+          <input formControlName="password" type="password" matInput placeholder="Contraseña">
+          <mat-error *ngIf="isValidField('password')">
+            {{ getFieldError('password') }}
+          </mat-error>
+        </mat-form-field>
+        <button [disabled]="myForm.invalid" type="submit" mat-flat-button color="primary">
+          <mat-icon>tv_signin</mat-icon>
+          Ingresar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

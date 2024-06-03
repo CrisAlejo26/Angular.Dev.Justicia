@@ -1,0 +1,44 @@
+<div *ngIf="loading" class="spinner" [class.fade-out]="!loading">
+    <mat-spinner></mat-spinner>
+</div>
+<mat-sidenav-container *ngIf="!loading" fullscreen>
+    <mat-sidenav #sidenav mode="over" [ngStyle]="{ width: '300px' }">
+        <mat-toolbar>
+            <span>Elex</span>
+            <span class="spacer"></span>
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <mat-nav-list class="d-flex align-items-center justify-content-center">
+            <mat-list-item
+                (click)="sidenav.toggle()"
+                *ngFor="let item of sidebarItems"
+                mat-list-item
+                routerLink="{{ item.url }}"
+            >
+                <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+                {{ item.label }}
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-toolbar color="primary">
+        <button class="title" mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon matListItemIcon>menu</mat-icon>
+        </button>
+        <h1>Elex</h1>
+
+        <span class="spacer"></span>
+
+        <button (click)="logout()" mat-button>Logout</button>
+    </mat-toolbar>
+    <!-- Conteiner que muestro como home -->
+    <div *ngIf="routeActual() === '/dashboard'" class="container-flex">
+        <app-dashboard></app-dashboard>
+    </div>
+    <!-- Otras rutas -->
+    <div class="container">
+        <router-outlet *ngIf="!loading"></router-outlet>
+    </div>
+</mat-sidenav-container>

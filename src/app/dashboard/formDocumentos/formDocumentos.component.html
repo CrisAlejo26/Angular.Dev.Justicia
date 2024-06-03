@@ -1,0 +1,54 @@
+<main class="formulario">
+    <div class="formulario_div">
+        <form (ngSubmit)="onSave()" [formGroup]="myForm" class="formulario_container">
+            <h2 *ngIf="id === 0" class="formulario_title">Agregar Documentos</h2>
+            <h2 *ngIf="id !== 0" class="formulario_title">Actualizar Documentos</h2>
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input formControlName="nombre" matInput placeholder="Nombre" />
+                <mat-error *ngIf="isValidField('nombre')">
+                    {{ getFieldError('nombre') }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input_mt">
+                <mat-label>Actuación</mat-label>
+                <mat-select formControlName="actuacion">
+                    <mat-option *ngFor="let item of actuaciones" [value]="item.id">{{
+                        item.descripcion
+                    }}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="isValidField('actuacion')">
+                    Este campo es obligatorio.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="input_mt" appearance="fill">
+                <mat-label>Fecha</mat-label>
+                <input
+                    formControlName="fechaActuacion"
+                    matInput
+                    [matDatepicker]="picker"
+                    placeholder="Elige una fecha"
+                />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="isValidField('fechaActuacion')">
+                    Este campo es obligatorio.
+                </mat-error>
+            </mat-form-field>
+
+            <div class="formulario_buttons">
+                <button type="button" (click)="onCancel()" mat-raised-button color="warn">
+                    Cancelar
+                </button>
+                <button *ngIf="id === 0" type="submit" mat-raised-button color="primary">
+                    Crear
+                </button>
+                <button *ngIf="id !== 0" type="submit" mat-raised-button color="primary">
+                    Actualizar
+                </button>
+            </div>
+        </form>
+    </div>
+</main>

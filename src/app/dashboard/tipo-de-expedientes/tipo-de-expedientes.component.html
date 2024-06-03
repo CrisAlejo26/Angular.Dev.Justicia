@@ -1,0 +1,109 @@
+<div *ngIf="loading" class="spinner" [class.fade-out]="!loading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<main class="tipoExpedientes" *ngIf="!loading">
+    <button
+        class="tipoExpedientes_button"
+        routerLink="/dashboard/formulario-tipoExpedientes"
+        mat-flat-button
+        color="primary"
+    >
+        Agregar tipo de expediente
+    </button>
+    <mat-form-field class="tipoExpedientes_search">
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Buscando..." #input />
+    </mat-form-field>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+            <!-- Position Column -->
+            <ng-container matColumnDef="id">
+                <th
+                    style="background-color: rgb(211, 211, 243); text-align: center"
+                    mat-header-cell
+                    *matHeaderCellDef
+                >
+                    Id.
+                </th>
+                <td style="text-align: center" mat-cell *matCellDef="let element">
+                    {{ element.id }}
+                </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="nombre">
+                <th
+                    style="background-color: rgb(211, 211, 243); text-align: center"
+                    mat-header-cell
+                    *matHeaderCellDef
+                >
+                    Nombre
+                </th>
+                <td style="text-align: center" mat-cell *matCellDef="let element">
+                    {{ element.nombre }}
+                </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="descripcion">
+                <th
+                    style="background-color: rgb(211, 211, 243); text-align: center"
+                    mat-header-cell
+                    *matHeaderCellDef
+                >
+                    Descripcion
+                </th>
+                <td style="text-align: center" mat-cell *matCellDef="let element">
+                    {{ element.descripcion }}
+                </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="habilitado">
+                <th
+                    style="background-color: rgb(211, 211, 243); text-align: center"
+                    mat-header-cell
+                    *matHeaderCellDef
+                >
+                    Habilitado Si/No
+                </th>
+                <td style="text-align: center" mat-cell *matCellDef="let element">
+                    <mat-checkbox [checked]="element.habilitado"></mat-checkbox>
+                </td>
+            </ng-container>
+
+            <!-- Acciones Column -->
+            <ng-container matColumnDef="acciones">
+                <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    style="background-color: rgb(211, 211, 243); text-align: center"
+                >
+                    Acciones
+                </th>
+                <td style="text-align: center" mat-cell *matCellDef="let element">
+                    <button mat-icon-button matTolltip="Editar" (click)="editarElemento(element)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button
+                        mat-icon-button
+                        matTolltip="Eliminar"
+                        (click)="openConfirmDialog(element.id)"
+                    >
+                        <mat-icon style="color: red">delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <mat-paginator
+            [pageSizeOptions]="[5, 10, 20]"
+            showFirstLastButtons
+            aria-label="Select page of periodic elements"
+        >
+        </mat-paginator>
+    </div>
+</main>

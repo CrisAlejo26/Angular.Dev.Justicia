@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  angular-app:
+    build: .
+    ports:
+      - "4300:4200"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - backend_default
+
+networks:
+  backend_default:
+    external: true

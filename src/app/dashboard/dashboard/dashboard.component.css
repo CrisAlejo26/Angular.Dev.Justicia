@@ -1,0 +1,17 @@
+.title {
+  margin: 4rem auto 2rem auto;
+  width: 90%;
+  font-size: 3.5rem;
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
+}
+
+.flex-container {
+  margin: auto auto;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}

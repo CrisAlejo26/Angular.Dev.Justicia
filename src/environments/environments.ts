@@ -1,0 +1,43 @@
+export const environment = {
+  baseUrl: 'http://localhost:8081',
+  token: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjcmlzdGlhbkBnbWFpbC5jb20iLCJpYXQiOjE3MTIyNDI4NzcsImV4cCI6MTcxMjI0NDMxN30.zsnkaMbFH6l-odooEOAC2wxh12vDpBGMtamA9qDy5V0',
+  actuacionesGet: "http://localhost:8081/actuaciones",
+  expedientesGet: "http://localhost:8081/expedientes",
+  tipoExpedientesPost: 'http://localhost:8081/tiposDeExpediente',
+  tipoExpedientesGet: "http://localhost:8081/tiposDeExpediente",
+  tipoExpedientesPut: 'http://localhost:8081/tiposDeExpediente/',
+  tipoExpedientesDelete: 'http://localhost:8081/tiposDeExpediente/',
+  documentosGet: 'http://localhost:8081/documentos',
+  documentosPut: 'http://localhost:8081/documentos/',
+  documentosPost: 'http://localhost:8081/documentos',
+  documentosDelete: 'http://localhost:8081/documentos/',
+}
+
+// export const environment = {
+//   baseUrl: 'http://app_backend:8081',
+//   token: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjcmlzdGlhbkBnbWFpbC5jb20iLCJpYXQiOjE3MTIyNDI4NzcsImV4cCI6MTcxMjI0NDMxN30.zsnkaMbFH6l-odooEOAC2wxh12vDpBGMtamA9qDy5V0',
+//   actuacionesGet: "http://app_backend:8081/actuaciones",
+//   expedientesGet: "http://app_backend:8081/expedientes",
+//   tipoExpedientesPost: 'http://app_backend:8081/tiposDeExpediente',
+//   tipoExpedientesGet: "http://app_backend:8081/tiposDeExpediente",
+//   tipoExpedientesPut: 'http://app_backend:8081/tiposDeExpediente/',
+//   tipoExpedientesDelete: 'http://app_backend:8081/tiposDeExpediente/',
+//   documentosGet: 'http://app_backend:8081/documentos',
+//   documentosPut: 'http://app_backend:8081/documentos/',
+//   documentosPost: 'http://app_backend:8081/documentos',
+//   documentosDelete: 'http://app_backend:8081/documentos/',
+// };
+// export const environment = {
+//   baseUrl: 'http://backend-app_backend:8081',
+//   token: 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjcmlzdGlhbkBnbWFpbC5jb20iLCJpYXQiOjE3MTIyNDI4NzcsImV4cCI6MTcxMjI0NDMxN30.zsnkaMbFH6l-odooEOAC2wxh12vDpBGMtamA9qDy5V0',
+//   actuacionesGet: "http://backend-app_backend:8081/actuaciones",
+//   expedientesGet: "http://backend-app_backend:8081/expedientes",
+//   tipoExpedientesPost: 'http://backend-app_backend:8081/tiposDeExpediente',
+//   tipoExpedientesGet: "http://backend-app_backend:8081/tiposDeExpediente",
+//   tipoExpedientesPut: 'http://backend-app_backend:8081/tiposDeExpediente/',
+//   tipoExpedientesDelete: 'http://backend-app_backend:8081/tiposDeExpediente/',
+//   documentosGet: 'http://backend-app_backend:8081/documentos',
+//   documentosPut: 'http://backend-app_backend:8081/documentos/',
+//   documentosPost: 'http://backend-app_backend:8081/documentos',
+//   documentosDelete: 'http://backend-app_backend:8081/documentos/',
+// };

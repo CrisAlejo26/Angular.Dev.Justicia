@@ -1,0 +1,44 @@
+<div *ngIf="loading" class="spinner" [class.fade-out]="!loading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div class="flex_button" *ngIf="!loading">
+    <button
+        class="documentos_button"
+        routerLink="/dashboard/formulario-documentos"
+        mat-flat-button
+        color="primary"
+    >
+        Agregar Documento
+    </button>
+    <mat-form-field class="documentos_search">
+        <mat-label>Buscar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Buscando..." #input />
+    </mat-form-field>
+</div>
+<div class="card">
+    <mat-card *ngFor="let documento of filteredDocumentos" class="card-class">
+        <mat-card-header>
+            <mat-card-title>{{ documento.nombre }}</mat-card-title>
+            <mat-card-subtitle>{{ documento.fecha }}</mat-card-subtitle>
+        </mat-card-header>
+        <img class="card-class-image" mat-card-lg-image src="assets/card.jpg" />
+        <mat-card-content>
+            <p>
+                {{ documento.actuacion }}
+            </p>
+        </mat-card-content>
+        <mat-card-actions class="card_actions">
+            <button mat-button (click)="editarElemento(documento)">
+                <mat-icon>edit</mat-icon> Editar
+            </button>
+            <button (click)="openConfirmDialog(documento.id)" mat-button>
+                <mat-icon>delete</mat-icon> Eliminar
+            </button>
+            <button mat-button (click)="downloadDocumento(documento)">
+                <mat-icon>download</mat-icon>Descargar
+            </button>
+        </mat-card-actions>
+        <mat-card-footer></mat-card-footer>
+    </mat-card>
+</div>

@@ -1,0 +1,27 @@
+{
+    "root": true,
+    "ignorePatterns": ["projects/**/*"],
+    "overrides": [
+        {
+        "files": ["*.ts"],
+        "parserOptions": {
+            "project": ["tsconfig.json"],
+            "createDefaultProgram": true
+        },
+        "extends": [
+            "eslint:recommended",
+            "plugin:@angular-eslint/recommended",
+            "plugin:prettier/recommended"
+        ],
+        "rules": {
+            "prettier/prettier": ["error", {
+            "endOfLine": "auto",
+            "singleQuote": true,
+            "printWidth": 100,
+            "tabWidth": 4,
+            "trailingComma": "none"
+            }]
+        }
+        }
+    ]
+    }

@@ -1,0 +1,29 @@
+.formulario {
+  width: 50rem;
+  margin: 0 auto;
+}
+
+.formulario_container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(229, 230, 241, 0.712);
+  padding: 5rem;
+  border-radius: 2rem;
+  margin-top: 3rem;
+}
+
+.formulario_title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 3rem;
+}
+
+.input_mt {
+  margin-top: 1rem;
+}
+
+.formulario_buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}

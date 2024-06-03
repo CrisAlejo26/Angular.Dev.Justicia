@@ -1,0 +1,34 @@
+<main class="formulario">
+    <div class="formulario_div">
+        <form (ngSubmit)="onSubmit()" [formGroup]="myForm" class="formulario_container">
+            <h2 *ngIf="id === 0" class="formulario_title">Agregar Tipo de Expediente</h2>
+            <h2 *ngIf="id !== 0" class="formulario_title">Actualizar Tipo de Expediente</h2>
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input formControlName="nombreTipo" matInput placeholder="Nombre" />
+                <mat-error *ngIf="isValidField('nombreTipo')">
+                    {{ getFieldError('nombreTipo') }}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Descripcion</mat-label>
+                <input formControlName="descripcion" matInput placeholder="Descripcion" />
+                <mat-error *ngIf="isValidField('descripcion')">
+                    {{ getFieldError('descripcion') }}
+                </mat-error>
+            </mat-form-field>
+            <mat-checkbox formControlName="borrado">Tipo de Expediente Habilitado</mat-checkbox>
+            <div class="formulario_buttons">
+                <button (click)="onCancel()" type="button" mat-raised-button color="warn">
+                    Cancelar
+                </button>
+                <button *ngIf="id === 0" type="submit" mat-raised-button color="primary">
+                    Crear
+                </button>
+                <button *ngIf="id !== 0" type="submit" mat-raised-button color="primary">
+                    Actualizar
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
